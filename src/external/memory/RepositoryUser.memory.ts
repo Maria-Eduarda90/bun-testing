@@ -2,7 +2,7 @@ import User from "../../core/user/model/User.model";
 import RepositoryUser from "../../core/user/service/repository/RepositoryUser.repository";
 
 export default class RepositoryUserMemory implements RepositoryUser {
-    constructor(private readonly user: User[]){}
+    constructor(private readonly user: User[] = []){}
 
     async consultByEmail(email: string): Promise<User | null> {
         return this.user.find(user => user.email === email) ?? null;
